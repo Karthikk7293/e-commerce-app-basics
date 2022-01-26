@@ -1,0 +1,140 @@
+ <section>
+  <div class="container-fluid">
+    <div class="row shadow">
+      <div class="col-lg-9 my-2">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+              aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+              <ul class="navbar-nav  d-flex justify-content-around my-lg-0 me-auto mb-2 ms-auto navbar-nav-scroll"
+                style="--bs-scroll-height: 100px;">
+                <li class="nav-item dropdown mx-1">
+                  <div class="dropdown">
+                    <a class="nav-link dropbtn text-dark fw-bold" href="#">MEN</a>
+                    <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+                  </div>
+                </li>
+                <li class="nav-item dropdown mx-1">
+                  <div class="dropdown">
+                    <a class="nav-link dropbtn text-dark fw-bold" href="#">WOMEN</a>
+                    <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+                  </div>
+                </li>
+                <li class="nav-item dropdown mx-1">
+                  <div class="dropdown">
+                    <a class="nav-link dropbtn text-dark fw-bold" href="#">KIDS</a>
+                    <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                     
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+                  </div>
+                </li>
+                <li class="nav-item dropdown mx-1">
+                  <div class="dropdown">
+                    <a class="nav-link dropbtn text-dark fw-bold" href="#">HOME&LIVING</a>
+                    <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+                  </div>
+                </li>
+                 <li class="nav-item dropdown mx-1">
+                  <div class="dropdown">
+                    <a class="nav-link dropbtn text-dark fw-bold" href="#">BEAUTY</a>
+                    <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                     
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+                  </div>
+                </li>
+                 <li class="nav-item dropdown mx-1">
+                  <div class="dropdown">
+                    <a class="nav-link dropbtn text-dark fw-bold" href="#">STUDIO <sup>new</sup></a>
+                    <ul class="dropdown-menu dropdown-content" aria-labelledby="navbarScrollingDropdown">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+                  </div>
+                </li>
+              </ul>
+              <form class="">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="col-lg-3 my-2">
+        <nav class="navbar navbar-expand-lg ">
+          <div class="container-fluid">
+
+            <div class="collapse navbar-collapse" id="navbarScroll">
+
+              <ul class="navbar-nav  mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><img src="/images/icons/bitbucket.svg" alt=""><sup class="badge">1</sup></a>
+                </li>
+                {{#if name}}
+                <li class="nav-item dropdown mx-4">
+                  <a class="nav-link dropdown  text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                     <img class="mx-1" src="/images/icons/opsgenie.svg" alt="">
+                     {{name}}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                    <li><a class="dropdown-item" href="/logout">repo</a></li>
+                    <li><hr></li>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                  </ul>
+                </li>
+                 {{else}}
+                     <li class="nav-item dropdown mx-4">
+                  <a class="nav-link dropdown text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                     <img class="mx-1" src="/images/icons/opsgenie.svg" alt="">
+                     Account
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/login">Login</a></li>
+                  </ul>
+                </li>
+                     {{/if}}
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

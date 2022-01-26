@@ -1,0 +1,36 @@
+<section>
+    <div class="container">
+        <div class="row ">
+            <div class="wrapper d-flex ">
+                <div class="col-lg-6 col-12  justify-content-center">
+                    <div class="text-center mt-4 name"> Sign Up Here </div>
+
+                    <form class="p-3  text-center" action="/admin/signUp" method="post">
+                        <div class="form-field d-flex   align-items-center">
+                            <input type="text" name="name" id="pwd" placeholder="First Name">
+                        </div>
+                        {{!-- <div class="form-field d-flex  align-items-center">
+                            <input type="text" name="lastName" id="userName" placeholder="Last Name">
+                        </div> --}}
+                        <div class="form-field d-flex  align-items-center">
+                            <input type="text" name="phone" id="userName" placeholder="Phone Number">
+                        </div>
+
+                        <div class="form-field d-flex   align-items-center">
+                            <input type="email" name="email" id="pwd" placeholder="E-mail id">
+                        </div>
+                        <div class="form-field d-flex   align-items-center">
+                            <input type="password" name="password" id="pwd" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn ">Sign Up</button>
+
+                    </form>
+                    <div class="text-center fs-6"> <a href="/admin/login">Already have An account ?</a> </div>
+                </div>
+                <div class="col-lg-6 col-12 d-flex justify-content-center login-logo">
+                    <img src="/images/icons/—Pngtree—log in login interface computer_3945571.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
