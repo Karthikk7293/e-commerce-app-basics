@@ -42,6 +42,16 @@ module.exports={
                 resolve({status:false})
             }
         })
+    },
+    varifyMail:(email)=>{
+        return new Promise(async(resolve,reject)=>{
+            let user = await db.get().collection(collection.USER_COLLECTION).findOne({email:email})
+            if(user){
+                resolve({status:false})
+            }else{
+                resolve({status:true})
+            }
+        })
     }
 
 

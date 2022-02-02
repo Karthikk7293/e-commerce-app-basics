@@ -3,113 +3,74 @@
         <div class="row ">
             <div class="add-product mt-2 text-end">
                 <!-- Button trigger modal -->
-                
-                    <button type="button"  class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">
-                        Add Product
-                    </button>
+
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Add Product
+                </button>
                 <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Add Product</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <form class="  text-center" action="/admin/add-product" method="post"
-                                enctype="multipart/form-data">
-                                <div class="modal-body">
 
-                                    <div class=" product-field">
-                                        <input type="text" name="name" placeholder="Name" required>
-                                    </div>
-                                    <div class="form-field product-field">
-                                        <input type="text" name="price" placeholder="Price" required>
-                                    </div>
-                                    <div class="form-field product-field">
-                                        <input type="text" name="brand" placeholder="Brand" required>
-                                    </div>
-                                    <div class="form-field product-field">
-                                        <input type="text" name="description" placeholder="Description" required>
-                                    </div>
-                                    <div class="form-field product-field">
-                                        <input type="file" name="image" onchange="viewImage(event)" placeholder="image" required>
-                                    </div>
-
-
-                                </div>
-                                <div class="modal-footer d-flex justify-content-between">
-                                    <img width="80px" height="auto" id="imageView"  alt="">
-                                    <button type="submit" class="btn btn-success">add product</button>
-                                </div>
-                            </form>
-                        </div>
+            </div>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div>
+                        Some text as placeholder. In real life you can have the elements you have chosen. Like,
+                        text, images, lists, etc.
+                    </div>
+                    <div class="dropdown mt-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown">
+                            Dropdown button
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-                    aria-labelledby="offcanvasExampleLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div>
-                            Some text as placeholder. In real life you can have the elements you have chosen. Like,
-                            text, images, lists, etc.
-                        </div>
-                        <div class="dropdown mt-3">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown">
-                                Dropdown button
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             <div class="col-md-12 mt-2">
 
-                <table class="table ">
+                <table class="table" id="productsTable">
                     <thead>
                         <tr>
-                            <th><b></b></th>
-                            <th><b></b></th>
-                            <th><b>name</b></th>
+                            <th><b></b>Number</th>
+                            <th><b>Images</b></th>
+                            <th><b>Name</b></th>
                             <th><b>Price</b></th>
                             <th><b>Brand</b></th>
                             <th><b>Description</b></th>
-                            <th><b></b></th>
-                            <th><b></b></th>
+                            <th><b></b>Options</th>
                         </tr>
                     </thead>
                     <tbody class="tbody">
-                        {{!-- <tr class="tr">
-                            <td><input type="checkbox" /></td>
-                            <td><b>Mozilla</b></td>
-                            <td><b>In celebration of women and girls everywhere</b></td>
-                            <td><a href="" class="img"><img src="" alt=""></a></td>
-                            <td><a href="" class="btn btn-primary">edit</a></td>
-                            <td><a href="" class="btn btn-danger">delete</a></td>
-                            <td><a href="" class="btn btn-danger">block</a></td>
-                            <td>Mar 10</td>
-                        </tr> --}}
                         {{#each products}}
-                        <tr >
+                        <tr>
                             <td>{{@index}}</td>
-                            <td><a href="" class="img"><img width="50px" height="auto" src="/images/products/{{this._id}}.jpg" alt=""></a></td>
+                            <td><a href="" class="img"><img width="50px" height="auto"
+                                        src="/images/products/{{this._id}}.jpg" alt=""></a></td>
                             <td>{{this.product.name}}</td>
                             <td>{{this.product.price}} </td>
                             <td>{{this.product.brand}} </td>
                             <td>{{this.product.description}} </td>
-                            <td><a href="" class="btn btn-primary">edit</a></td>
-                            <td><a href="" class="btn btn-danger">delete</a></td>
+                            <td><a href="/admin/edit-product/{{this._id}}"
+                                        class="text-light text-decoration-none">
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrops">Edit
+                                    
+                                </button></a>
+
+
+                                <a href="/admin/delete-product/{{this._id}}" class="btn btn-danger mx-1"
+                                    onclick="return confirm('Are you sure to want to delete {{this.product.name}}')">delete</a>
+                            </td>
+
                         </tr>
                         {{/each}}
                     </tbody>
@@ -119,8 +80,92 @@
     </div>
 </section>
 
- <script>
+{{!-- add product modal popup form start --}}
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"> Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="  text-center" action="/admin/add-product" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+
+                    <div class=" product-field">
+                        <input type="text" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-field product-field">
+                        <input type="text" name="price" placeholder="Price" required>
+                    </div>
+                    <div class="form-field product-field">
+                        <input type="text" name="brand" placeholder="Brand" required>
+                    </div>
+                    <div class="form-field product-field">
+                        <input type="text" name="description" placeholder="Description" required>
+                    </div>
+                    <div class="form-field product-field">
+                        <input type="file" name="image" onchange="viewImage(event)" placeholder="image" required>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <img width="80px" height="auto" id="imageView" alt="">
+                    <button type="submit" class="btn btn-success">add product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{!-- add product modal popup form end --}}
+
+{{!-- edit product modal popup form start --}}
+{{!-- <div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title " id="staticBackdropLabel">edit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="  text-center" action="/admin/add-product" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+
+                    <div class=" product-field">
+                        <input type="text" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-field product-field">
+                        <input type="text" name="price" placeholder="Price" required>
+                    </div>
+                    <div class="form-field product-field">
+                        <input type="text" name="brand" placeholder="Brand" required>
+                    </div>
+                    <div class="form-field product-field">
+                        <input type="text" name="description" placeholder="Description" required>
+                    </div>
+                    <div class="form-field product-field">
+                        <input type="file" name="image" onchange="viewImage(event)" placeholder="image" required>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <img width="80px" height="auto" id="imageView" alt="">
+                    <button type="submit" class="btn btn-success">edit product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> --}}
+{{!-- edit product modal popup form end --}}
+<script>
     function viewImage(event) {
-      document.getElementById('imageView').src = URL.createObjectURL(event.target.files[0])
+        document.getElementById('imageView').src = URL.createObjectURL(event.target.files[0])
     }
-  </script>
+
+
+    $(document).ready(function () {
+        $('#productsTable').DataTable();
+    });
+</script>

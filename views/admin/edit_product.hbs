@@ -1,0 +1,41 @@
+<section>
+    <div class="container">
+        <div class="row m-auto justify-content-center">
+            <h2 class="text-center">Edit Products</h2>
+            <div class="col-lg-6">
+                <form class="  text-center" action="/admin/edit-product/{{product._id}}" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+
+                    <div class=" product-field my-2">
+                        <input type="text" name="name" placeholder="Name" value="{{product.product.name}}" required>
+                    </div>
+                    <div class="form-field product-field my-2">
+                        <input type="text" name="price" placeholder="Price" value="{{product.product.price}}" required>
+                    </div>
+                    <div class="form-field product-field my-2">
+                        <input type="text" name="brand" placeholder="Brand" value="{{product.product.brand}}" required>
+                    </div>
+                    <div class="form-field product-field my-2">
+                        <input type="text" name="description" placeholder="Description" value="{{product.product.description}}" required>
+                    </div>
+                    <div class="form-field product-field my-2">
+                        <input type="file" name="image" onchange="viewImage(event)" placeholder="image" value="" >
+                    </div>
+
+
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <img width="50px" height="auto" id="imageView" src="/images/products/{{product._id}}.jpg" alt="">
+                    <button type="submit" class="btn btn-success">Edit product</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+     function viewImage(event) {
+        document.getElementById('imageView').src = URL.createObjectURL(event.target.files[0])
+    }
+
+</script>

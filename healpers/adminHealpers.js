@@ -63,6 +63,23 @@ module.exports={
                 resolve({blockStatus:true})
             })
         })
+    },
+    deletePoduct:(productId)=>{
+        return new Promise((resolve,rejcet)=>{
+            db.get().collection(collection.PRODUCT_COLLECTION).deleteOne({_id:ObjectId(productId)})
+            resolve({delete:true})
+        })
+    },
+    varifyMail:(email)=>{
+        return new Promise(async(resolve,reject)=>{
+            let admin = await db.get().collection(collection.ADMIN_COLLECTION).findOne({email:email})
+            // console.log('admin is here',admin);
+            if(admin){
+                resolve({status:false})
+            }else{
+                resolve({status:true})
+            }
+        })
     }
 
 

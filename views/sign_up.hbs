@@ -7,22 +7,23 @@
 
                     <form class="p-3  text-center" action="/signUp" method="post">
                         <div class="form-field d-flex   align-items-center">
-                            <input type="text" name="name" id="pwd" placeholder="First Name">
+                            <input type="text" name="name" id="pwd" placeholder="First Name" required>
                         </div>
                         {{!-- <div class="form-field d-flex  align-items-center">
                             <input type="text" name="lastName" id="userName" placeholder="Last Name">
                         </div> --}}
                         <div class="form-field d-flex  align-items-center">
-                            <input type="text" name="phone" id="userName" placeholder="Phone Number">
+                            <input type="text" name="phone" id="userName" placeholder="Phone Number" required>
                         </div>
 
                         <div class="form-field d-flex   align-items-center">
-                            <input type="email" name="email" id="pwd" placeholder="E-mail id">
+                            <p class="text-danger " id="mail-reject" style="font-size: 12px; margin-left: 11.5rem; margin-top: -1rem;  position: fixed;"></p>
+                            <input type="email" name="email"  placeholder="E-mail id" id="email" onchange="getMail(event)" required>
                         </div>
                         <div class="form-field d-flex   align-items-center">
-                            <input type="password" name="password" id="pwd" placeholder="Password">
+                            <input type="password" name="password"  placeholder="Password" required>
                         </div>
-                        <button type="submit" class="btn ">Sign Up</button>
+                        <button type="submit" id="btn" class="btn ">Sign Up</button>
 
                     </form>
                     <div class="text-center fs-6"> <a href="/login">Already have An account ?</a> </div>
@@ -34,3 +35,25 @@
         </div>
     </div>
 </section>
+<script>
+    function getMail(event) {
+        let email = document.getElementById('email').value
+        $.ajax({
+            url: '/varify-mail',
+            data: {
+                mail: email
+            },
+            type: 'post',
+            success: (response) => {
+                if (response.status) {
+                    document.getElementById("btn").disabled = false;
+                    document.getElementById("mail-reject").innerHTML =''
+                } else {
+                   document.getElementById("btn").disabled = true;
+                   document.getElementById("mail-reject").innerHTML ='The mail is already exist'
+                }
+            }
+        })
+    }
+
+</script>

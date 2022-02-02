@@ -34,6 +34,28 @@ module.exports ={
             let products= await db.get().collection(collection.PRODUCT_COLLECTION).find().toArray()
             resolve(products)
         })
+    },
+    getEditProduct:(productId)=>{
+        return new Promise(async(resolve,reject)=>{
+            let product = await db.get().collection(collection.PRODUCT_COLLECTION).findOne({_id:ObjectId(productId)})
+            // console.log(product);
+            resolve(product)
+        })
+    },
+    updateProduct:(productDetials,productId)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collection.PRODUCT_COLLECTION).updateOne({_id:ObjectId(productId)},
+            {
+                $set:{
+                    'product.name':productDetials.name,
+                    'product.price':productDetials.price,
+                    'product.brand':productDetials.brand,
+                    'product.description':productDetials.description
+                }
+            }).then((response)=>{
+                resolve();
+            })
+        })
     }
 
 
